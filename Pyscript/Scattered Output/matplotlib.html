@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Matplotlib</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width-device-width, initial-scaled=1.0">
+        <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+        <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+        <py-env>
+            - numpy
+            - matplotlib
+            - paths:
+                - data.py
+        </py-env>
+    </head>
+    <body>
+        <p id="output_heading"></p>
+        <div id="ploting_output"></div>
+        <py-script output="ploting_output">
+            pyscript.write("output_heading", "Scattered Plot")
+
+            import matplotlib.pyplot as plt
+            from data import make_x_and_y
+
+            x, y = make_x_and_y(n=1000)
+            fig, ax = plt.subplots()
+            ax.scatter(x , y)
+            fig
+
+        </py-script>
+    </body>
+</html>

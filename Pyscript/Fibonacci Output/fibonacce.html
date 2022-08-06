@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Fibonacce</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width-device-width, initial-scaled=1.0">
+        <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+        <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+        <py-env>
+            - matplotlib
+            - paths:
+                - data.py
+        </py-env>
+    </head>
+    <body>
+        <p id="output_heading"></p>
+        <p id="term"></p>
+        <div id="ploting_output"></div>
+        <py-script output="ploting_output">
+            pyscript.write("output_heading", "Fibonacce Plot")
+            
+            import matplotlib.pyplot as plt
+            from data import fibo1
+            
+            t = 100
+            term, x, y = fibo1(n=t)
+            pyscript.write("term", str(t) + "th term is " + str(term))
+            fig, ax = plt.subplots()
+            plt.xlabel("Terms", fontweight='bold')
+            plt.ylabel("Numbers", fontweight='bold')
+            plt.title("Fibonacci in O(n) Complexity")
+            ax.plot(x , y)
+            fig
+        </py-script>
+    </body>
+</html>
